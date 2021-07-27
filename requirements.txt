@@ -1,0 +1,3 @@
+pysimplegui
+toml
+fuzzywuzzy

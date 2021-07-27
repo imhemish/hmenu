@@ -7,10 +7,10 @@ You need to put double slashes as an escape sequence.
 After that, put the listener file in your startup folder, generally availalbe at  C:\Users\User\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup where User is your username
 
 # Configuration
-Hmenu creates a folder and file on first run in your home directory. The directory would be named ".hmenu".
-Inside it, you would find file "hmenu.conf". The syntax of configuration is:  
-<the_name_by_which_you_will_call_command>**<command / shortuct path / binary path>  
-The ** sepratior is necessary to separate both fields
+Hmenu creates a file ".hmenu.toml" on first run in your home directory. You can choose to include or exclude system, user start menu items or custom commands. The configuration uses simple TOML configuration syntax.  
+For example, you can add custom command under [commands]:  
+myblahblahcommand = "\path\to\binary\or\shortcut"    
+You need to use escape sequence compatible with python if you want to include spaces or special characters especially slashes. We generally put "\\" instead of "\" 
 You may contact the maintainer through email to know more
 
 # Usage
