@@ -3,7 +3,7 @@ from os.path import exists, expanduser, isdir, isfile, join
 from os import mkdir, listdir, startfile
 from PySimpleGUI import Window, Input, change_look_and_feel, Text
 from fuzzywuzzy import fuzz
-from toml import load
+from toml import load, dump
 
 
 # Configuration files and folders
@@ -11,9 +11,9 @@ def check_configs():
     print("Creating configurations if don't exist")
     if not exists(expanduser("~\\.hmenu.toml")):
         filenew = open(expanduser("~\\.hmenu.toml"), "a")
+        new_config_dict = {"read_user_start_items": True, "read_system_start_items": True, "read_user_custom_commands":True, "commands":{"command": "\\path\\to\\binary"}}
+        dump(new_config_dict, filenew)
         filenew.close()
-
-
 
 # Reading from configuration
 def read_config():
